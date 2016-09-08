@@ -1,0 +1,27 @@
+{
+  "name": "music-venue-app",
+  "version": "1.0.0",
+  "description": "Project 1",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.0",
+    "node": "0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabrown91/music-venues.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cabrown91/music-venues/issues"
+  },
+  "homepage": "https://github.com/cabrown91/music-venues#readme"
+}
