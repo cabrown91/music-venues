@@ -56,17 +56,21 @@
 
         <!---one venue-->
       <div class="venues-list">
-        <div class="card large-9 columns">
-          <ul class="inline-list">
-            <img src="http://newfillmore.com/wp-content/uploads/2014/07/Yoshis.jpg">
-            <h4 class="inline-header">Venue Name:</h4>
-            <span class="venue-name">Yoshi's Oakland</span>
-            <h4 class="inline-header">Venue Address:</h4>
-            <span class="venue-name">Jack London Square, 510 Embarcadero West, Oakland, CA 94607</span>
-            <h4 class="inline-header">Venue Website:</h4>
-            <span class="venue-name">www.yoshis.com</span>
-          </ul>
-        </div>
+        <script id="venues-template" type="text/x-handlebars-template">
+          {{each venues}}
+          <div class="card large-9 columns">
+            <ul class="inline-list">
+              <img src="http://newfillmore.com/wp-content/uploads/2014/07/Yoshis.jpg">
+              <h4 class="inline-header">Venue Name:</h4>
+              <span class="venue-name">{{name}}</span>
+              <h4 class="inline-header">Venue Address:</h4>
+              <span class="venue-name">{{address}}</span>
+              <h4 class="inline-header">Venue Website:</h4>
+              <span class="venue-name">{{website}}</span>
+            </ul>
+          </div>
+          {{/each}}
+        </script>
     </div>
 
     </div>
