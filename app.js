@@ -1,4 +1,7 @@
+var $venues;
+var template;
 var venuesList = [];
+
 venuesList.push({
   name: "Billy Graham Civic Auditorium",
   address: "99 Grove St, San Francisco, CA 94102",
@@ -38,25 +41,27 @@ venuesList.push({
 
 $(document).ready(function(){
   console.log('app.js loaded!');
+  $venues = $('#venues');
 
-  var $venueHtml = $('#venues-template').html(),
-      venueTemplate = Handlebars.compile(source);
+  var source = $('#venues-template').html(),
+      template = Handlebars.compile(source);
 
-  $.ajax({
-    method: 'GET',
-    url: '/api/venues',
-    success: renderVenues,
-    error: renderError
-  });
+  // $.ajax({
+  //   method: 'GET',
+  //   url: '/api/venues',
+  //   success: renderVenues,
+  //   error: renderError
+  // });
+
+function renderVenues() {
+  var venuesHtml = template({ venues: venuesList });
+  console.log(venuesHtml);
+  $venues.append(venuesHtml);
+}
+renderVenues();
+
+function renderError() {
+  console.log("Sorry, that didn't work out!");
+}
+
 });
-
-function renderVenues(venue) {
-  console.log('rendering venue:', venue);
-
-  var venueHtml = template(venue);
-  $('#venues').append(venueHtml);
-}
-
-function renderError(err) {
-  console.log('error', err);
-}
