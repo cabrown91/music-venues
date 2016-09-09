@@ -1,8 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var Venue = require('./venue');
-
 var VenueSchema = new Schema({
    name: String,
    address: String,
@@ -12,7 +10,7 @@ var VenueSchema = new Schema({
      type: Schema.Types.ObjectId,
      ref: 'Amenities'
    }
-  });
+});
 
  var Venue = mongoose.model('Venue', VenueSchema);
 
