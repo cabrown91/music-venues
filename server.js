@@ -17,6 +17,7 @@ app.get('/', function (req, res) {
   res.sendFile('views/index.html' , { root : __dirname});
 });
 
+var controllers = require('./controllers');
 // get all the venues
 
 
@@ -59,26 +60,14 @@ var venuesList = [
 ];
 
 
-app.get('/api/venues', function (req, res) {
-  res.json({venues: venuesList});
-  // db.Book.find()
-  // .populate('amenities')
-  // .exec(function(err, venues) {
-  //   if(err) { return console.log("index error!"); }
-  //   res.json(venues);
-  // });
-});
+app.get('/api', controllers.api.index);
+
+app.get('/api/venues', controllers.venues.index);
+// app.get('/api/venues/:venuesId', controllers.venues.show);
+// app.post('/api/amenitites', controllers.amenities.create);
 
 //// creates new venue thru form
-app.post('api/venues', function(req, res) {
-  var newVenue = new db.Venue({
-    name: req.body.name,
-    address: req.body.address,
-    website: req.body.website,
-    image: req.body.image,
 
-  });
-});
 
 
 
