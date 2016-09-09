@@ -1,5 +1,4 @@
-var $venues;
-var template;
+// var $venues;
 var venuesList = [];
 
 venuesList.push({
@@ -41,21 +40,38 @@ venuesList.push({
 
 $(document).ready(function(){
   console.log('app.js loaded!');
-  $venues = $('#venues');
 
-  var source = $('#venues-template').html(),
-      template = Handlebars.compile(source);
+var venuesTemplate;
+
+  $.ajax({
+    method: 'GET',
+    url: '/api/venues',
+    success: renderVenues
+  });
+
+  // $('#newVenueForm').on('submit', function(e) {
+  //   e.preventDefault();
+  //   var formData = $(this).serialize();
+  //   console.log('formData', formData);
+  //   $.post('/api/venues', formData, function(venue) {
+  //     console.log('venue after POST', venue);
+  //     renderVenue(venue);  //render the server's response
+  //   });
+  //   $(this).trigger("reset");
+  // });
 
 
-function renderVenues() {
-  var venuesHtml = template({ venues: venuesList });
-  console.log(venuesHtml);
-  $venues.append(venuesHtml);
-}
-renderVenues();
 
-function renderError() {
-  console.log("Sorry, that didn't work out!");
-}
+    console.log('app.js loaded!');
+    $venues = $('#venues');
 
-});
+    var source = $('#venues-template').html(),
+        template = Handlebars.compile(source);
+
+  function renderVenues() {
+    var venuesHtml = template({ venues: venuesList });
+    console.log(venuesHtml);
+    $venues.append(venuesHtml);
+  }
+  renderVenues();
+  });
