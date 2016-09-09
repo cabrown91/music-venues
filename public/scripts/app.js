@@ -38,8 +38,25 @@ venuesList.push({
 
 $(document).ready(function(){
   console.log('app.js loaded!');
+
+  var $venueHtml = $('#venues-template').html(),
+      venueTemplate = Handlebars.compile(source);
+
+  $.ajax({
+    method: 'GET',
+    url: '/api/venues',
+    success: renderVenues,
+    error: renderError
+  });
 });
 
 function renderVenues(venue) {
   console.log('rendering venue:', venue);
+
+  var venueHtml = template(venue);
+  $('#venues').append(venueHtml);
+}
+
+function renderError(err) {
+  console.log('error', err);
 }

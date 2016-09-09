@@ -3,14 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>
-
+      Music Venues App
     </title>
     <link rel="stylesheet" type="text/css" href="../main.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
   </head>
   <body>
 
@@ -28,7 +27,7 @@
 
 
   <div class="parallax-content">
-    <form class="form-style">
+    <form id='#newVenueForm' class="form-style">
       <div class="row">
         <div class="large-6 columns">
           <label class="form-style">Venue Name
@@ -55,12 +54,12 @@
       <div id="venues">
 
         <!---one venue-->
-      <div class="venues-list">
         <script id="venues-template" type="text/x-handlebars-template">
-          {{each venues}}
+          <div class="row venue">
+          {{#each venue}}
           <div class="card large-9 columns">
             <ul class="inline-list">
-              <img src="http://newfillmore.com/wp-content/uploads/2014/07/Yoshis.jpg">
+              <img src={{image}}>
               <h4 class="inline-header">Venue Name:</h4>
               <span class="venue-name">{{name}}</span>
               <h4 class="inline-header">Venue Address:</h4>
@@ -68,8 +67,8 @@
               <h4 class="inline-header">Venue Website:</h4>
               <span class="venue-name">{{website}}</span>
             </ul>
-          </div>
           {{/each}}
+          </div>
         </script>
     </div>
 
