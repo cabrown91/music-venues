@@ -49,7 +49,6 @@ $(document).ready(function(){
 
 function renderVenues() {
   var venuesHtml = template({ venues: venuesList });
-  console.log(venuesHtml);
   $venues.append(venuesHtml);
 }
 renderVenues();
@@ -57,5 +56,31 @@ renderVenues();
 function renderError() {
   console.log("Sorry, that didn't work out!");
 }
+
+$('.card').on('click', '.delete-btn', handleDeleteVenue);
+
+function handleDeleteVenue(e) {
+  var venueId = $(this).data('data-venue-id');
+  console.log(venueId);
+
+  $.ajax({
+    url:'/api/venues/' + venueId,
+    method: 'DELETE',
+    success: handleDeleteVenueSuccess
+  });
+
+  function handleDeleteVenueSuccess(data) {
+    var deletedVenueId = data._id;
+    console.log('removng the following venue:', deletedVenueId);
+    $('div[data-venue-id=' + deletedVenueId + ']');
+  }
+}
+
+
+
+
+
+
+
 
 });
