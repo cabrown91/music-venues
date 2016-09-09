@@ -4,7 +4,12 @@ body {
 	font-size: 20px;
 }
 
+h2 {
+	text-align: center;
+}
+
 .parallax-background {
+	background-image: url('https://www.digitalstatus.com/wp-content/uploads/2015/02/dj_fans.jpg');
 	background-color: #0078A0;
 	height: 620px;
 	background-repeat: no-repeat;
@@ -17,7 +22,7 @@ body {
 }
 
 .intro-text {
-	font-size: 50px;
+	font-size: 75px;
 	color: #fff;
 	text-align: center;
 	margin-top: 15%;
@@ -35,6 +40,20 @@ body {
 	margin: 0 auto;
 	width: 750px;
 }
+
+img {
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 30px;
+	padding-bottom: 50px;
+}
+
+#card-content {
+	padding-top: 25px;
+}
+
+
+
 
 @import url(//fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900);
 html, body {
