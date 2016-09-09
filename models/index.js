@@ -1,7 +1,9 @@
 var mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/music-venue-app");
+
 
 var Venue = require('./venues');
-var Amenities = require('./amenities');
+// var Amenities = require('./amenities');
 
 module.exports.Venue = Venue;
-module.exports.Amenities = Amenities;
+// module.exports.Amenities = Amenities;
