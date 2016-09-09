@@ -54,7 +54,7 @@
           <script id="venues-template" type="text/x-handlebars-template">
             {{#each venues}}
             <div class="row venue">
-              <div class="card large-12 columns">
+              <div class="card large-12 columns" data-venue-id={{_id}}>
                   <ul class="inline-list large-text-center">
                       <img src={{image}} class="large-6 columns">
                       <div id="card-content">
