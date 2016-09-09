@@ -2,33 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>
-      Music Venues App
-    </title>
+    <title> Music Venues App</title>
+
+    <!--CSS -->
     <link rel="stylesheet" type="text/css" href="../main.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css">
-
+    <!--Script Files  -->
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
     <script src="../app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js"></script> -->
-    <!-- < took out foundation javascript file -->
   </head>
   <body>
 
     <div class="parallax-background">
       <div class="intro-text">
         Music Venues App
-
-
         <p><i class="fi-arrow-down"></i></p>
       </div>
     </div>
 
 
-<!-- asdf -->
-
-
+<!-- form to create venues -->
   <div class="parallax-content">
     <form id='#newVenueForm' class="form-style">
       <div class="row">
@@ -45,38 +39,44 @@
           <label class="form-style">Venue Image
             <input type="text" placeholder="Image URL">
           </label>
-          <a role="button" aria-label="submit form" href="#" class="button">Submit</a>
+          <a role="button" aria-label="submit form" href="#" id="form-btn" class="button">Submit</a>
         </div>
       </div>
     </form>
   </div>
   <div class="parallax-content">
     <div class="row">
-      <h3> Venues </h3>
+      <h2> Venues </h2>
 
       <div id="venues">
 
         <!---one venue-->
-        <script id="venues-template" type="text/x-handlebars-template" defer>
-          {{#each venues}}
-          <div class="row venue">
-          <center><div class="card large-12 columns"></center>
-            <ul class="inline-list">
-              <img src={{image}}>
-              <h4 class="inline-header">Venue Name:</h4>
-              <span class="venue-name">{{name}}</span>
-              <h4 class="inline-header">Venue Address:</h4>
-              <span class="venue-name">{{address}}</span>
-              <h4 class="inline-header">Venue Website:</h4>
-              <span class="venue-name">{{website}}</span>
-            </ul>
-          </div>
-          {{/each}}
-        </script>
+          <script id="venues-template" type="text/x-handlebars-template">
+            {{#each venues}}
+            <div class="row venue">
+              <div class="card large-12 columns" data-venue-id={{_id}}>
+                  <ul class="inline-list large-text-center">
+                      <img src={{image}} class="large-6 columns">
+                      <div id="card-content">
+                        <h4 class="inline-header large-6 small-12 columns">Venue Name:</h4>
+                        <span class="venue-name large-6 small-12 columns">{{name}}</span>
+                        <h4 class="inline-header large-6 small-12 columns">Venue Address:</h4>
+                        <span class="venue-address large-6 small-12 columns">{{address}}</span>
+                        <h4 class="inline-header large-6 small-12 columns">Venue Website:</h4>
+                        <span class="venue-website large-6 small-12 columns">{{website}}</span>
+                        <br>
+                        <br>
+                        <a href="#" class="button small">Edit</a>
+                        <a href="#" class="button small">Delete</a>
+                      </div>
+                  </ul>
+              </div>
+            </div>
+            {{/each}}
+          </script>
+        </div>
+      </div>
     </div>
-
-    </div>
-  </div>
 
   </body>
 </html>
