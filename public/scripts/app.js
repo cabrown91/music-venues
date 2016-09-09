@@ -64,7 +64,7 @@ function handleDeleteVenue(e) {
   console.log(venueId);
 
   $.ajax({
-    url:'/api/venues/' + venueId,
+    url:'/api/albums/' + venueId,
     method: 'DELETE',
     success: handleDeleteVenueSuccess
   });
