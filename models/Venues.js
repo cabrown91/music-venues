@@ -1,8 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var Venue = require('./venue');
-
 var VenueSchema = new Schema({
    name: String,
    address: String,
