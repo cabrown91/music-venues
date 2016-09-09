@@ -6,7 +6,7 @@ venuesList.push({
   name: "Fox Theater",
   address: "1807 Telegraph Ave, Oakland, CA 94612",
   website: "http://www.apeconcerts.com/venues/fox-theater-oakland/",
-  image: "http://images.fineartamerica.com/images-medium-large-5/historic-fox-theatre-in-detroit-michigan-peter-ciro.jpg"
+  image: "https://resize.rbl.ms/simage/https%3A%2F%2Fassets.rbl.ms%2F5501727%2F980x.jpg/2000,2000/jUdFKqL6Ake8Kqoy/img.jpg"
 });
 venuesList.push({
   name: "Billy Graham Civic Auditorium",
