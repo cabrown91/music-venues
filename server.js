@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 var controllers = require('./controllers');
 // get all the venues
 
-// 
+//
 // var venuesList = [
 //   {name: "Fox Theater",
 //   address: "1807 Telegraph Ave, Oakland, CA 94612",
@@ -60,11 +60,12 @@ var controllers = require('./controllers');
 // ];
 
 
-app.get('/api', controllers.api.index);
+app.get('/api', controllers.venues.index);
 
 app.get('/api/venues', controllers.venues.index);
 
 app.post('/api/venues',controllers.venues.create);
+
 
 // app.get('/api/venues/:venuesId', controllers.venues.show);
 // app.post('/api/amenitites', controllers.amenities.create);
