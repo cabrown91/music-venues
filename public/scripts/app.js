@@ -35,9 +35,7 @@ $(document).ready(function(){
           {name: nameData.val(), address: addressData.val(), website: websiteData.val(), image: imageData.val()},
         success: renderVenues
       });
-
-      console.log(nameData, addressData, websiteData, imageData);
-      $(this).trigger("reset");
+      window.location.reload();
     });
 
 $('#venues').on('click', '.delete-btn', handleDeleteVenue);
