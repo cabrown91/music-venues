@@ -10,7 +10,7 @@ var VenueSchema = new Schema({
      type: Schema.Types.ObjectId,
      ref: 'Amenities'
    }
-  });
+});
 
  var Venue = mongoose.model('Venue', VenueSchema);
 

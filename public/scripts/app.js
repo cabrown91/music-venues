@@ -1,7 +1,3 @@
-// var $venues;
-//
-
-// now works thru server, no need for source code. have not committed since making changes
 
 $(document).ready(function(){
   console.log('app.js loaded!');
@@ -12,9 +8,6 @@ $(document).ready(function(){
       url: '/api/venues',
       success: renderVenues
     });
-
-
-
 
 
     $('#form-btn').on('click', function(e) {
@@ -49,6 +42,26 @@ $(document).ready(function(){
   });
 
 
-  // $.post('/api/venues', formData, function(venue) {
-  //   console.log('venue after POST', venue);
-  //   renderVenue(venue);  //render the server's response
+
+$('#venues').on('click', '.delete-btn', handleDeleteVenue);
+
+function handleDeleteVenue(e) {
+  var venueId = $(this).parents('.venue').data('venue-id');
+  $.ajax({
+    url: '/api/venues/' + venueId,
+    method: 'DELETE',
+    success: handleDeleteVenueSuccess,
+    error: handleDeleteVenueError
+  });
+}
+
+function handleDeleteVenueSuccess(data){
+var deletedVenueId = data._id;
+$('div[data-venue-id=' + deletedVenueId +']').remove();
+}
+
+function handleDeleteVenueError(err) {
+  return 'Error deleting the venue:', err;
+}
+
+});

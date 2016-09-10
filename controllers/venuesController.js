@@ -18,19 +18,19 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  db.Venue.findById(req.params.venueId, function(err, foundVenue) {
+  db.Venue.findById(req.params.venuesId, function(err, foundVenue) {
     if(err) { console.log('venuesController.show error', err); }
     console.log('venuesController.show responding with', foundVenue);
     res.json(foundVenue);
   });
 }
 
-// function destroy(req, res) {
-//   db.Venue.findOneAndRemove({ _id: req.params.venueId }, function(err, foundVenue){
+function destroy(req, res) {
+  db.Venue.findOneAndRemove({ _id: req.params.venuesId }, function(err, foundVenue){
 //     // note you could send just send 204, but we're sending 200 and the deleted entity
-//     res.json(foundVenue);
-//   });
-// }
+    res.json(foundVenue);
+  });
+}
 
 
 
@@ -39,6 +39,6 @@ module.exports = {
   index: index,
   create: create,
   show: show,
-  // destroy: destroy,
+  destroy: destroy,
   // update: update
 };

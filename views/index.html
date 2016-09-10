@@ -41,6 +41,7 @@
           </label>
           <!-- <a role="button" aria-label="submit form" href="#" class="button">Submit</a> -->
           <a role="button" aria-label="submit form" id="form-btn" class="button">Submit</a>
+
         </div>
       </div>
     </form>
@@ -54,8 +55,8 @@
         <!---one venue-->
           <script id="venues-template" type="text/x-handlebars-template">
             {{#each venues}}
-            <div class="row venue">
-              <div class="card large-12 columns" data-venue-id={{_id}}>
+            <div class="row venue" data-venue-id={{_id}}>
+              <div class="card large-12 columns">
                   <ul class="inline-list large-text-center">
                       <img src={{image}} class="large-6 columns">
                       <div id="card-content">
@@ -67,8 +68,9 @@
                         <span class="venue-website large-6 small-12 columns">{{website}}</span>
                         <br>
                         <br>
-                        <a href="#" class="button small">Edit</a>
-                        <a href="#" class="button small">Delete</a>
+                        <a class="button small comment-venue">Comment</a>
+                        <a class="button small edit-venue">Edit</a>
+                        <a class="button small delete-btn">Delete</a>
                       </div>
                   </ul>
               </div>
