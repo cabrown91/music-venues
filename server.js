@@ -4,7 +4,6 @@ var express = require('express'),
     db = require('./models');
 
 
-
 // serves static files in public directory
 app.use(express.static(__dirname + '/public'));
 
@@ -16,6 +15,11 @@ app.get('/', function (req, res) {
 });
 
 var controllers = require('./controllers');
+// get all the venues
+
+
+app.get('/api', controllers.venues.index);
+
 
 app.get('/api', controllers.api.index);
 // get all the venues
@@ -26,10 +30,6 @@ app.post('/api/venues',controllers.venues.create);
 app.delete('/api/venues/:venuesId', controllers.venues.destroy);
 //get one venue
 app.get('/api/venues/:venuesId', controllers.venues.show);
-
-
-
-
 
 
 app.listen(process.env.PORT || 3000, function () {
