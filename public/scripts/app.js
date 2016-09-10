@@ -32,7 +32,7 @@ function handleDeleteVenue(e) {
 
 function handleDeleteVenueSuccess(data){
 var deletedVenueId = data._id;
-$('data-venue-id=' + deletedVenueId).remove();
+$('div[data-venue-id=' + deletedVenueId +']').remove();
 }
 
 function handleDeleteVenueError(err) {
