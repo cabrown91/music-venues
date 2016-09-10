@@ -1,13 +1,11 @@
 var express = require('express'),
-  bodyParser = require('body-parser'),
-  db = require('./models');
+    app = express(),
+    bodyParser = require('body-parser'),
+    db = require('./models');
 
 
-var app = express();
 
 // serves static files in public directory
-
-
 app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,13 +20,13 @@ var controllers = require('./controllers');
 app.get('/api', controllers.api.index);
 // get all the venues
 app.get('/api/venues', controllers.venues.index);
-
+//create a new venue
 app.post('/api/venues',controllers.venues.create);
+//delete a venue
+app.delete('/api/venues/:venuesId', controllers.venues.destroy);
+//get one venue
+app.get('/api/venues/:venuesId', controllers.venues.show);
 
-// app.get('/api/venues/:venuesId', controllers.venues.show);
-// app.post('/api/amenitites', controllers.amenities.create);
-
-//// creates new venue thru form
 
 
 
