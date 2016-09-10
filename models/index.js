@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/music-venues");
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/music-venues" );
 
 var Venue = require('./venues');
 
