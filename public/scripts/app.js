@@ -22,7 +22,6 @@ $('#venues').on('click', '.delete-btn', handleDeleteVenue);
 
 function handleDeleteVenue(e) {
   var venueId = $(this).parents('.venue').data('venue-id');
-  console.log('someone wants to delete venue', venueId);
   $.ajax({
     url: '/api/venues/' + venueId,
     method: 'DELETE',
@@ -32,14 +31,12 @@ function handleDeleteVenue(e) {
 }
 
 function handleDeleteVenueSuccess(data){
-console.log(data);
 var deletedVenueId = data._id;
-console.log('removing the following venue from the page:', deletedVenueId);
 $('data-venue-id=' + deletedVenueId).remove();
 }
 
 function handleDeleteVenueError(err) {
-  console.log('ERROR', err);
+  return 'Error deleting the venue:', err;
 }
 
 
