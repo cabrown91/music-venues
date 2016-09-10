@@ -16,23 +16,42 @@ function renderVenues(venues) {
   $venues.append(venuesHtml);
 }
   renderVenues();
-});
 
-$('.card').on('click', '.delete-btn', handleDeleteVenue);
+
+$('#venues').on('click', '.delete-btn', handleDeleteVenue);
 
 function handleDeleteVenue(e) {
-  var venueId = $(this).data('data-venue-id');
-  console.log(venueId);
-
+  var venueId = $(this).parents('.venue').data('venue-id');
+  console.log('someone wants to delete venue', venueId);
   $.ajax({
-    url:'/api/albums/' + venueId,
+    url: '/api/venues/' + venueId,
     method: 'DELETE',
-    success: handleDeleteVenueSuccess
+    success: handleDeleteVenueSuccess,
+    error: handleDeleteVenueError
   });
-
-  function handleDeleteVenueSuccess(data) {
-    var deletedVenueId = data._id;
-    console.log('removng the following venue:', deletedVenueId);
-    $('div[data-venue-id=' + deletedVenueId + ']');
-  }
 }
+
+function handleDeleteVenueSuccess(data){
+console.log(data);
+var deletedVenueId = data._id;
+console.log('removing the following venue from the page:', deletedVenueId);
+$('data-venue-id=' + deletedVenueId).remove();
+}
+
+function handleDeleteVenueError(err) {
+  console.log('ERROR', err);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
