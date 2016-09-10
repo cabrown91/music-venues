@@ -53,8 +53,8 @@
         <!---one venue-->
           <script id="venues-template" type="text/x-handlebars-template">
             {{#each venues}}
-            <div class="row venue">
-              <div class="card large-12 columns" data-venue-id={{_id}}>
+            <div class="row venue" data-venue-id={{_id}}>
+              <div class="card large-12 columns">
                   <ul class="inline-list large-text-center">
                       <img src={{image}} class="large-6 columns">
                       <div id="card-content">
@@ -68,7 +68,7 @@
                         <br>
                         <a class="button small comment-venue">Comment</a>
                         <a class="button small edit-venue">Edit</a>
-                        <a class="button small delete-venue">Delete</a>
+                        <a class="button small delete-btn">Delete</a>
                       </div>
                   </ul>
               </div>
