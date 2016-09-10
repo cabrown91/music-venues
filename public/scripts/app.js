@@ -13,16 +13,27 @@ $(document).ready(function(){
       success: renderVenues
     });
 
-    $('#newVenueForm').on('submit', function(e) {
+
+
+
+
+    $('#form-btn').on('click', function(e) {
       e.preventDefault();
-      // var formData = $(this).serialize();
-      console.log('formData', formData);
+
+      var nameData= $('#nameData');
+      var addressData = $('#addressData');
+      var websiteData = $('#websiteData');
+      var imageData = $('#imageData');
+
       $.ajax({
         method: 'POST',
         url: '/api/venues',
-        data: $(this).serializeArray(),
-        sucess: renderVenues,
+        data:
+          {name: nameData.val(), address: addressData.val(), website: websiteData.val(), image: imageData.val()},
+        success: renderVenues
       });
+
+      console.log(nameData, addressData, websiteData, imageData);
       $(this).trigger("reset");
     });
 
