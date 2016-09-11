@@ -6,10 +6,10 @@ var VenueSchema = new Schema({
    address: String,
    website: String,
    image: String,
-   amenities: {
-     type: Schema.Types.ObjectId,
-     ref: 'Amenities'
-   }
+   comments: [{
+     name: String,
+     comment: String
+ }]
 });
 
  var Venue = mongoose.model('Venue', VenueSchema);
