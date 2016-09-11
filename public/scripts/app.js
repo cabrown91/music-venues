@@ -1,77 +1,61 @@
-// var $venues;
-var venuesList = [];
-
-venuesList.push({
-  name: "Fox Theater",
-  address: "1807 Telegraph Ave, Oakland, CA 94612",
-  website: "http://www.apeconcerts.com/venues/fox-theater-oakland/",
-  image: "https://resize.rbl.ms/simage/https%3A%2F%2Fassets.rbl.ms%2F5501727%2F980x.jpg/2000,2000/jUdFKqL6Ake8Kqoy/img.jpg"
-});
-venuesList.push({
-  name: "Billy Graham Civic Auditorium",
-  address: "99 Grove St, San Francisco, CA 94102",
-  website: "http://www.billgrahamcivicauditorium.com/",
-  image: "http://www.inetours.com/Pages/images/Civic-Center/Cvic-Auditorium_9865.jpg"
-});
-venuesList.push({
-  name: "The Fillmore",
-  address: "1805 Geary Blvd, San Francisco, CA 94115",
-  website: "http://thefillmore.com/",
-  image: "http://www.sanfranciscodays.com/photos/large/the-fillmore.jpg"
-});
-venuesList.push({
-  name: "Great American Music Hall",
-  address: "859 O'Farrell St, San Francisco, CA 94109",
-  website: "http://www.slimspresents.com/",
-  image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Great_American_Music_Hall_(April_1976).jpg"
-});
-venuesList.push({
-  name: "The Independent",
-  address: "628 Divisadero St, San Francisco, CA 94117",
-  website: "http://www.theindependentsf.com/",
-  image: "http://ww2.kqed.org/bayareabites/wp-content/uploads/sites/24/2013/12/indysf-guide1000.jpg"
-});
-venuesList.push({
-  name: "Boom Boom Room",
-  address: "1601 Fillmore St, San Francisco, CA 94115",
-  website: "http://www.boomboomroom.com/tickets-schedule/",
-  image: "http://img1.sunset.timeinc.net/sites/default/files/image/city-guides/san-francisco/sf-attractions-boom-boom-room-0209-x.jpg"
-});
 
 $(document).ready(function(){
   console.log('app.js loaded!');
 
-var venuesTemplate;
 
+    $.ajax({
+      method: 'GET',
+      url: '/api/venues',
+      success: renderVenues
+    });
+
+    function renderVenues(venues) {
+      var source = $('#venues-template').html(),
+          template = Handlebars.compile(source);
+          $venues = $('#venues');
+
+      var venuesHtml = template({ venues: venues });
+      $venues.prepend(venuesHtml);
+    }
+      renderVenues();
+
+
+    $('#form-btn').on('click', function(e) {
+      e.preventDefault();
+
+      var nameData= $('#nameData');
+      var addressData = $('#addressData');
+      var websiteData = $('#websiteData');
+      var imageData = $('#imageData');
+
+      $.ajax({
+        method: 'POST',
+        url: '/api/venues',
+        data:
+          {name: nameData.val(), address: addressData.val(), website: websiteData.val(), image: imageData.val()},
+        success: renderVenues
+      });
+      window.location.reload();
+    });
+
+$('#venues').on('click', '.delete-btn', handleDeleteVenue);
+
+function handleDeleteVenue(e) {
+  var venueId = $(this).parents('.venue').data('venue-id');
   $.ajax({
-    method: 'GET',
-    url: '/api/venues',
-    success: renderVenues
+    url: '/api/venues/' + venueId,
+    method: 'DELETE',
+    success: handleDeleteVenueSuccess,
+    error: handleDeleteVenueError
   });
+}
 
-  // $('#newVenueForm').on('submit', function(e) {
-  //   e.preventDefault();
-  //   var formData = $(this).serialize();
-  //   console.log('formData', formData);
-  //   $.post('/api/venues', formData, function(venue) {
-  //     console.log('venue after POST', venue);
-  //     renderVenue(venue);  //render the server's response
-  //   });
-  //   $(this).trigger("reset");
-  // });
+function handleDeleteVenueSuccess(data){
+var deletedVenueId = data._id;
+$('div[data-venue-id=' + deletedVenueId +']').remove();
+}
 
-
-
-    console.log('app.js loaded!');
-    $venues = $('#venues');
-
-    var source = $('#venues-template').html(),
-        template = Handlebars.compile(source);
-
-  function renderVenues() {
-    var venuesHtml = template({ venues: venuesList });
-    console.log(venuesHtml);
-    $venues.append(venuesHtml);
-  }
-  renderVenues();
-  });
+function handleDeleteVenueError(err) {
+  return 'Error deleting the venue:', err;
+}
+});
