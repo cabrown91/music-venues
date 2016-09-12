@@ -18,6 +18,11 @@ var controllers = require('./controllers');
 // get all the venues
 
 
+app.get('/search', function (req, res) {
+  res.send('search');
+});
+
+
 app.get('/api', controllers.venues.index);
 
 

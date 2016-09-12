@@ -9,7 +9,7 @@ var VenueSchema = new Schema({
    comments: [{
      name: String,
      comment: String
- }]
+   }]
 });
 
  var Venue = mongoose.model('Venue', VenueSchema);
