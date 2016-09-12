@@ -5,7 +5,16 @@ var venuesList = [
     name: "The Regency Ballroom",
     address: "1290 Sutter St, San Francisco, CA 94109",
     website: "http://www.theregencyballroom.com/",
-    image: "https://pbs.twimg.com/profile_images/941986691/regency.jpg"
+    image: "https://pbs.twimg.com/profile_images/941986691/regency.jpg",
+    comments: [{
+      name: "Andrew C.",
+      comment: "The venue is great. I can always find parking, and the setting is very intimate."
+    },
+  {
+    name: "Alicia B.",
+    comment: "I hate this venue. The tickets are pricey and it's standing room only."
+  }
+    ]
   },
   {
     name: "Boom Boom Room",
