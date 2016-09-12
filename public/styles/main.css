@@ -4,8 +4,12 @@ body {
 	font-size: 20px;
 }
 
-h2 {
-	text-align: center;
+#comment-box {
+	display: none;
+}
+
+.post-btn {
+	display: none;
 }
 
 .parallax-background {

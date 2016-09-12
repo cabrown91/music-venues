@@ -64,11 +64,21 @@
                         <span class="venue-address large-6 small-12 columns">{{address}}</span>
                         <h4 class="inline-header large-6 small-12 columns">Venue Website:</h4>
                         <span class="venue-website large-6 small-12 columns">{{website}}</span>
+                        <h4 class="inline-header large-6 small-12 columns">Comments:</h4>
+                        <span class="venue-comments large-6 small-12 columns">
+                          <p> Name: {{commentname}} <br>
+                          Comment: {{comments}}
+                        </p>
+                        </span>
+                        <textarea class="large-6 columns" id="comment-box" name="textarea" placeholder="Write something here" rows="5" cols="2"></textarea>
                         <br>
                         <br>
-                        <a class="button small comment-btn">Comment</a>
-                        <a class="button small edit-btn">Edit</a>
-                        <a class="button small delete-btn">Delete</a>
+                        <div class="row">
+                          <a class="button small comment-btn">Comment</a>
+                          <a class="button small post-btn">Post Comment</a>
+                          <a class="button small edit-btn">Edit</a>
+                          <a class="button small delete-btn">Delete</a>
+                      </div>
                       </div>
                   </ul>
               </div>

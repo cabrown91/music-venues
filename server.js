@@ -30,6 +30,8 @@ app.post('/api/venues',controllers.venues.create);
 app.delete('/api/venues/:venuesId', controllers.venues.destroy);
 //get one venue
 app.get('/api/venues/:venuesId', controllers.venues.show);
+//add comments to a venue
+app.put('/api/venues/:venuesId/comments', controllers.venueComments.create);
 
 
 app.listen(process.env.PORT || 3000, function () {
