@@ -40,9 +40,7 @@ $(document).ready(function(){
       $(this).trigger("reset");
     });
 
-
-
-
+    
 $('#venues').on('click', '.delete-btn', handleDeleteVenue);
 
 function handleDeleteVenue(e) {
