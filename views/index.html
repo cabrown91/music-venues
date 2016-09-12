@@ -66,9 +66,9 @@
                         <span class="venue-website large-6 small-12 columns">{{website}}</span>
                         <h4 class="inline-header large-6 small-12 columns">Comments:</h4>
                         <span class="venue-comments large-6 small-12 columns">
-                          <p> Name: {{commentname}} <br>
-                          Comment: {{comments}}
-                        </p>
+                          {{#each comments}}
+                              <p><strong>{{name}}</strong> | {{name}}</p>
+                          {{/each}}
                         </span>
                         <textarea class="large-6 columns" id="comment-box" name="textarea" placeholder="Write something here" rows="5" cols="2"></textarea>
                         <br>
