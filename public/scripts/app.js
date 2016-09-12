@@ -64,7 +64,7 @@ function handleDeleteVenueError(err) {
 $('#venues').on('click', '.comment-btn', commentBtnClick);
 
 function commentBtnClick(e){
-  $('#comment-box').show();
+  $('#comment-section').show();
   $('.comment-btn').hide();
   $('.delete-btn').hide();
   $('.edit-btn').hide();
@@ -74,11 +74,12 @@ $('#venues').on('click', '.post-btn', handleComment);
 
 function handleComment() {
   var venueId = $(this).parents('.venue').data('venue-id');
-  var comment = $('#comment-box');
+  var comment = $('#body');
+  var name = $('#title');
   $.ajax({
     url: '/api/venues/' + venueId + '/comments',
     method: 'PUT',
-    data: {name: 'Test', comment: comment.val() },
+    data: {name: name.val(), comment: comment.val() },
     success: handleCommentSuccess,
     error: handleCommentError
   });
@@ -87,7 +88,7 @@ function handleComment() {
     console.log('The comment:', comment, 'was created!');
     // re-render whole page to maintain state
     getVenues();
-    $('#comment-box').hide();
+    $('#comment-section').hide();
     $('.delete-btn').show();
     $('edit-btn').show();
     $('.comment-btn').show();

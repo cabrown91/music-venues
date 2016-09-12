@@ -67,10 +67,13 @@
                         <h4 class="inline-header large-6 small-12 columns">Comments:</h4>
                         <span class="venue-comments large-6 small-12 columns">
                           {{#each comments}}
-                              <p><strong>{{name}}</strong> | {{name}}</p>
+                              <p><strong>{{name}}</strong> | {{comment}}</p>
                           {{/each}}
                         </span>
-                        <textarea class="large-6 columns" id="comment-box" name="textarea" placeholder="Write something here" rows="5" cols="2"></textarea>
+                        <form id="comment-section" class="large-6 columns" name="comments">
+                          <input id="title" name="title" type="text" placeholder="e.g. John Smith" required></input>
+                          <input id="body" name="body" type="text" placeholder="Comments go here">
+                        </form>
                         <br>
                         <br>
                         <div class="row">
