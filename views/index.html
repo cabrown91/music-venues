@@ -43,8 +43,8 @@
 
 
 <!-- form to create venues -->
-<div class="parallax-content">
-  <form id='newVenueForm' class="form-style">
+  <div class="parallax-content">
+    <form id='newVenueForm' class="form-style">
       <div class="row">
         <div class="large-6 columns">
           <label class="form-style">Venue Name
@@ -59,10 +59,11 @@
           <label class="form-style">Venue Image
             <input id="imageData" name="image" type="text" placeholder="Image URL">
           </label>
-          <!-- <a role="button" aria-label="submit form" href="#" class="button">Submit</a> -->
           <a role="button" aria-label="submit form" id="form-btn" class="button">Submit</a>
           <input id="pac-input" class="controls" type="text" placeholder="Search Box">
           <div id="map"></div>
+
+          <a value="submit" id="form-btn" class="button">Submit</a>
         </div>
       </div>
     </form>
@@ -90,8 +91,8 @@
                         <span class="venue-website large-6 small-12 columns">{{website}}</span>
                         <br>
                         <br>
-                        <a class="button small comment-venue">Comment</a>
-                        <a class="button small edit-venue">Edit</a>
+                        <a class="button small comment-btn">Comment</a>
+                        <a class="button small edit-btn">Edit</a>
                         <a class="button small delete-btn">Delete</a>
                       </div>
                   </ul>
