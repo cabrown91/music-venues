@@ -84,13 +84,8 @@ $(document).ready(function(){
   }
     renderVenues();
 
-  $('#form-btn').on('click', function(e) {
-    e.preventDefault();
+    $('#venues').on('click', '.delete-btn', handleDeleteVenue);
 
-    var nameData= $('#nameData');
-    var addressData = $('#addressData');
-    var websiteData = $('#websiteData');
-    var imageData = $('#imageData');
 
     $('#form-btn').on('click', function(e) {
       e.preventDefault();
@@ -100,17 +95,6 @@ $(document).ready(function(){
       var websiteData = $('#websiteData');
       var imageData = $('#imageData');
 
-      $.ajax({
-        method: 'POST',
-        url: '/api/venues',
-        data:
-          {name: nameData.val(), address: addressData.val(), website: websiteData.val(), image: imageData.val()},
-        success: renderVenues
-      });
-      window.location.reload();
-    });
-
-$('#venues').on('click', '.delete-btn', handleDeleteVenue);
 
   $.ajax({
     method: 'POST',
@@ -120,10 +104,12 @@ $('#venues').on('click', '.delete-btn', handleDeleteVenue);
     success: renderVenues
   });
     console.log(nameData, addressData, websiteData, imageData);
-    $(this).trigger("reset");
+    $( '#newVenueForm' ).each(function(){
+    this.reset();
+    window.location.reload();
+});
   });
 
-  $('#venues').on('click', '.delete-btn', handleDeleteVenue);
 
   function handleDeleteVenue(e) {
     var venueId = $(this).parents('.venue').data('venue-id');
@@ -134,6 +120,8 @@ $('#venues').on('click', '.delete-btn', handleDeleteVenue);
       error: handleDeleteVenueError
     });
   }
+
+
 
   function handleDeleteVenueSuccess(data){
     var deletedVenueId = data._id;

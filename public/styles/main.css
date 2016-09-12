@@ -12,8 +12,23 @@ html, body {
 #map {
   height: 500px;
 	width: 800px;
+	border: 10px solid #000000;
 }
 
+.inline-header {
+	font-weight: bold;
+}
+
+#map-instructions {
+	font-weight: normal;
+}
+
+#form-btn {
+	border-radius: 10px;
+}
+span {
+	padding: 10px;
+}
 
 .has-form {
   position: absolute;
@@ -75,12 +90,17 @@ img {
 	padding-top: 25px;
 }
 
+.button.small {
+	border-radius: 10px;
+}
+
+.form-style {
+	font-weight: bold;
+}
 
 li {
 	list-style: none;
 }
-
-
 
 @import url(//fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900);
 html, body {
@@ -106,7 +126,7 @@ html, body {
     border-top: 1px solid rgba(160, 160, 160, 0.2);
     padding: 1.3rem; }
   .card a {
-    color: #ffab40;
+    color: white;
     margin-right: 1.3rem;
     transition: color 0.3s ease;
     text-transform: uppercase;

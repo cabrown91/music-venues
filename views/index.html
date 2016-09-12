@@ -16,27 +16,27 @@
 
   </head>
   <body>
-    <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map"></div> -->
     <div class="parallax-background">
-      <nav class="top-bar" data-topbar role="navigation" style="height: 2em">
-        <li class="has-form">
+      <!-- // this whole section adds a search bar. I commented it out as it holds no
+       functionality and does not serve a good user experience until we have a new route
+       for a results page. -->
+
+      <!-- <nav class="top-bar" data-topbar role="navigation" style="height: 2em"> -->
+        <!-- <li class="has-form">
           <div class="row collapse">
             <div class="large-8 small-9 columns">
               <input type="text" placeholder="Find Stuff">
-            </div>
-            <div class="large-4 small-3 columns">
-              <input type="button" class="alert button expand" id="search-button" value="Search"
-                  onclick="window.location = document.getElementById('search-button').value;"/>
-            </div>
-          </div>
-        </li>
-      </nav>
+            </div> -->
+            <!-- <div class="large-4 small-3 columns"> -->
+              <!-- <input type="button" class="alert button expand" id="search-button" value="Search"
+                  onclick="window.location = document.getElementById('search-button').value;"/> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </li>
+      </nav> -->
 
       <div class="intro-text">
         <p>Music Venues App</p>
-        <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-        <div id="map"></div> -->
         <p><i class="fi-arrow-down"></i></p>
       </div>
     </div>
@@ -44,6 +44,8 @@
 
 <!-- form to create venues -->
   <div class="parallax-content">
+    <p id= "map-instructions"> Look up local music venues through Google Places and create a comprehensive directory for your friends!</p>
+
     <form id='newVenueForm' class="form-style">
       <div class="row">
         <div class="large-6 columns">
@@ -60,10 +62,11 @@
             <input id="imageData" name="image" type="text" placeholder="Image URL">
           </label>
           <a role="button" aria-label="submit form" id="form-btn" class="button">Submit</a>
+
+          <!-- //// map set up here  -->
           <input id="pac-input" class="controls" type="text" placeholder="Search Box">
           <div id="map"></div>
 
-          <a value="submit" id="form-btn" class="button">Submit</a>
         </div>
       </div>
     </form>
