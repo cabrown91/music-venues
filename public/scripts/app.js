@@ -1,6 +1,6 @@
 function initAutocomplete() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -33.8688, lng: 151.2195},
+    center: {lat: 37.7749, lng: -122.4194},
     zoom: 13,
     mapTypeId: 'roadmap'
   });
@@ -21,7 +21,7 @@ function initAutocomplete() {
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
 
-    if (places.length == 0) {
+    if (places.length === 0) {
       return;
     }
 
