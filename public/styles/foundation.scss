@@ -4,6 +4,29 @@ body {
   font-size: 20px;
 }
 
+.top-bar {
+  height: 20px;
+
+}
+
+.has-form {
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 6rem; // adjust distance from left here
+  min-width: 14rem; // adjust width here
+
+  @media only screen and (max-width: 40em) {
+    min-width: 10rem;
+    top: 0.5rem;
+
+    .button.small {
+      height: 1.85rem;
+      border-radius: 30px;
+    }
+  }
+}
+
 .parallax-background {
   background-color: #0078A0;
   height: 620px;
@@ -27,7 +50,7 @@ body {
   max-width: 100%;
   position: relative;
   top: 500px;
-  padding: 50px;
+  padding: 10px;
   font-size: 20px;
   background-color: #fff;
 }
