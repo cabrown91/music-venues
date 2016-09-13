@@ -46,37 +46,36 @@
   <div class="parallax-content">
     <p id= "map-instructions"> Look up local music venues through Google Places and create a comprehensive directory for your friends!</p>
 
-    <form id='newVenueForm' class="form-style">
-      <div class="row">
-        <div class="large-6 columns">
-          <label class="form-style">Venue Name
-            <input id="nameData" name="name" type="text" placeholder="e.g. Music Inn">
-          </label>
-          <label class="form-style">Venue Address
-            <input id="addressData" name="address"type="text" placeholder="e.g. 1234 Park Ave">
-          </label>
-          <label class="form-style">Venue Website
-            <input id="websiteData" name="website" type="text" placeholder="e.g. https://">
-          </label>
-          <label class="form-style">Venue Image
-            <input id="imageData" name="image" type="text" placeholder="Image URL">
-          </label>
-          <a role="button" aria-label="submit form" id="form-btn" class="button">Submit</a>
+      <form id='newVenueForm' class="form-style">
+        <div class="row">
+          <div class="large-6 columns">
+            <label class="form-style">Venue Name
+              <input id="nameData" name="name" type="text" placeholder="e.g. Music Inn">
+            </label>
+            <label class="form-style">Venue Address
+              <input id="addressData" name="address"type="text" placeholder="e.g. 1234 Park Ave">
+            </label>
+            <label class="form-style">Venue Website
+              <input id="websiteData" name="website" type="text" placeholder="e.g. https://">
+            </label>
+            <label class="form-style">Venue Image
+              <input id="imageData" name="image" type="text" placeholder="Image URL">
+            </label>
+            <a role="button" aria-label="submit form" id="form-btn" class="button">Submit</a>
 
-          <!-- //// map set up here  -->
-          <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-          <div id="map"></div>
+            <!-- //// map set up here  -->
+            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+            <div id="map"></div>
 
+          </div>
         </div>
-      </div>
-    </form>
-  </div>
-  <div class="parallax-content">
-    <div class="row">
-      <h2> Venues </h2>
+      </form>
+    </div>
+    <div class="parallax-content">
+      <div class="row">
+        <h2> Venues </h2>
 
-
-      <div id="venues">
+        <div id="venues">
 
         <!---one venue-->
           <script id="venues-template" type="text/x-handlebars-template">
