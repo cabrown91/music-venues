@@ -14,68 +14,51 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQZl4R2I9_bFIlDdGQIwNyVnAYRlUzDm0&libraries=places&callback=initAutocomplete" async defer></script>
 
 
-  </head>
-  <body>
-    <div class="parallax-background">
-      <!-- // this whole section adds a search bar. I commented it out as it holds no
-       functionality and does not serve a good user experience until we have a new route
-       for a results page. -->
+    </head>
+    <body>
+      <div class="parallax-background">
 
-      <!-- <nav class="top-bar" data-topbar role="navigation" style="height: 2em"> -->
-        <!-- <li class="has-form">
-          <div class="row collapse">
-            <div class="large-8 small-9 columns">
-              <input type="text" placeholder="Find Stuff">
-            </div> -->
-            <!-- <div class="large-4 small-3 columns"> -->
-              <!-- <input type="button" class="alert button expand" id="search-button" value="Search"
-                  onclick="window.location = document.getElementById('search-button').value;"/> -->
-            <!-- </div> -->
-          <!-- </div> -->
-        <!-- </li>
-      </nav> -->
-
-      <div class="intro-text">
-        <p>Music Venues App</p>
-        <p><i class="fi-arrow-down"></i></p>
-      </div>
-    </div>
-
-
-<!-- form to create venues -->
-  <div class="parallax-content">
-    <p id= "map-instructions"> Look up local music venues through Google Places and create a comprehensive directory for your friends!</p>
-
-      <form id='newVenueForm' class="form-style">
-        <div class="row">
-          <div class="large-6 columns">
-            <label class="form-style">Venue Name
-              <input id="nameData" name="name" type="text" placeholder="e.g. Music Inn">
-            </label>
-            <label class="form-style">Venue Address
-              <input id="addressData" name="address"type="text" placeholder="e.g. 1234 Park Ave">
-            </label>
-            <label class="form-style">Venue Website
-              <input id="websiteData" name="website" type="text" placeholder="e.g. https://">
-            </label>
-            <label class="form-style">Venue Image
-              <input id="imageData" name="image" type="text" placeholder="Image URL">
-            </label>
-            <a role="button" aria-label="submit form" id="form-btn" class="button">Submit</a>
-
-            <!-- //// map set up here  -->
-            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-            <div id="map"></div>
-
-          </div>
+        <div class="intro-text">
+          <p>Music Venues App</p>
+          <p><i class="fi-arrow-down"></i></p>
         </div>
-      </form>
-    </div>
-    <div class="parallax-content">
-      <div class="row">
-        <h2> Venues </h2>
+      </div>
 
-        <div id="venues">
+
+  <!-- form to create venues -->
+    <div class="parallax-content">
+      <p id= "map-instructions"> Look up local music venues through Google Places and create a comprehensive directory for your friends!</p>
+
+        <form id='newVenueForm' class="form-style">
+          <div class="row">
+            <div class="large-6 columns">
+              <label class="form-style">Venue Name
+                <input id="nameData" name="name" type="text" placeholder="e.g. Music Inn">
+              </label>
+              <label class="form-style">Venue Address
+                <input id="addressData" name="address"type="text" placeholder="e.g. 1234 Park Ave">
+              </label>
+              <label class="form-style">Venue Website
+                <input id="websiteData" name="website" type="text" placeholder="e.g. https://">
+              </label>
+              <label class="form-style">Venue Image
+                <input id="imageData" name="image" type="text" placeholder="Image URL">
+              </label>
+              <a role="button" aria-label="submit form" id="form-btn" class="button">Submit</a>
+
+              <!-- //// map set up here  -->
+              <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+              <div id="map"></div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="parallax-content">
+        <div class="row">
+          <h2> Venues </h2>
+
+          <div id="venues">
 
         <!---one venue-->
           <script id="venues-template" type="text/x-handlebars-template">
@@ -91,11 +74,21 @@
                         <span class="venue-address large-6 small-12 columns">{{address}}</span>
                         <h4 class="inline-header large-6 small-12 columns">Venue Website:</h4>
                         <span class="venue-website large-6 small-12 columns">{{website}}</span>
+                        <h4 class="inline-header large-6 small-12 columns">Comments:</h4>
+                        <span class="venue-comments large-6 small-12 columns">
+                          {{#each comments}}
+                              <p><strong>{{name}}</strong> | {{comment}}</p>
+                          {{/each}}
+                        </span>
+                        <form id="comment-section-{{_id}}" class="large-6 columns comment-section" name="comments" data-venue-id={{_id}}>
+                          <input id="title" name="name" type="text" placeholder="e.g. John Smith" required></input>
+                          <input id="body" name="comment" type="text" placeholder="Comments go here" required></input>
+                        </form>
                         <br>
                         <br>
-                        <a class="button small comment-btn">Comment</a>
-                        <a class="button small edit-btn">Edit</a>
-                        <a class="button small delete-btn">Delete</a>
+                          <a class="button small comment-btn" data-venue-id={{_id}}>Comment</a>
+                          <a class="button small post-btn" data-venue-id={{_id}}>Post Comment</a>
+                          <a class="button small delete-btn" data-venue-id={{_id}}>Delete</a>
                       </div>
                   </ul>
               </div>

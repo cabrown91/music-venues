@@ -47,6 +47,15 @@ h2 {
 	text-align: center;
 }
 
+#comment-section {
+	display: none;
+}
+
+.post-btn {
+	display: none;
+>>>>>>> 706706d899297e0c179e52b6e6d4a15d6db5001e
+}
+
 .parallax-background {
 	background-image: url('https://www.digitalstatus.com/wp-content/uploads/2015/02/dj_fans.jpg');
 	background-color: #0078A0;

@@ -1,3 +1,4 @@
+
 var db = require("./models");
 
 var venuesList = [
@@ -5,13 +6,31 @@ var venuesList = [
     name: "The Regency Ballroom",
     address: "1290 Sutter St, San Francisco, CA 94109",
     website: "http://www.theregencyballroom.com/",
-    image: "https://pbs.twimg.com/profile_images/941986691/regency.jpg"
+    image: "https://pbs.twimg.com/profile_images/941986691/regency.jpg",
+    comments: [{
+      name: "Andrew C.",
+      comment: "The venue is great. I can always find parking, and the setting is very intimate."
+    },
+  {
+    name: "Alicia B.",
+    comment: "I hate this venue. The tickets are pricey and it's standing room only."
+  }
+    ]
   },
   {
     name: "Boom Boom Room",
     address: "1601 Fillmore St, San Francisco, CA 94115",
     website: "http://www.boomboomroom.com/tickets-schedule/",
-    image: "http://img1.sunset.timeinc.net/sites/default/files/image/city-guides/san-francisco/sf-attractions-boom-boom-room-0209-x.jpg"
+    image: "http://img1.sunset.timeinc.net/sites/default/files/image/city-guides/san-francisco/sf-attractions-boom-boom-room-0209-x.jpg",
+    comments: [{
+      name: "Dizzy D.",
+      comment: " Our band has played here over 50 times. Best sounding smaller room in SF, with a decent PA and sound guys. As the drummer I especially appreciate the extra-large monitor."
+    },
+  {
+    name: "Paula Z.",
+    comment: "Super cool venue for private functions. Great stage and sound system. Vast selection of beers and wines, super food. Bands and sound man paid by party booking the place, food."
+  }
+    ]
   },
   {
     name: "Fox Theater",
