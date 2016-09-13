@@ -70,18 +70,16 @@
                               <p><strong>{{name}}</strong> | {{comment}}</p>
                           {{/each}}
                         </span>
-                        <form id="comment-section" class="large-6 columns" name="comments">
-                          <input id="title" name="title" type="text" placeholder="e.g. John Smith" required></input>
-                          <input id="body" name="body" type="text" placeholder="Comments go here" required>
+                        <form id="comment-section-{{_id}}" class="large-6 columns comment-section" name="comments" data-venue-id={{_id}}>
+                          <input id="title" name="name" type="text" placeholder="e.g. John Smith" required></input>
+                          <input id="body" name="comment" type="text" placeholder="Comments go here" required></input>
                         </form>
                         <br>
                         <br>
-                        <div class="row">
-                          <a class="button small comment-btn">Comment</a>
-                          <a class="button small post-btn">Post Comment</a>
-                          <a class="button small edit-btn">Edit</a>
-                          <a class="button small delete-btn">Delete</a>
-                      </div>
+                          <a class="button small comment-btn" data-venue-id={{_id}}>Comment</a>
+                          <a class="button small post-btn" data-venue-id={{_id}}>Post Comment</a>
+                          <a class="button small edit-btn" data-venue-id={{_id}}>Edit</a>
+                          <a class="button small delete-btn" data-venue-id={{_id}}>Delete</a>
                       </div>
                   </ul>
               </div>

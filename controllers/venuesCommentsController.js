@@ -9,6 +9,7 @@ function create(req, res) {
     var newComment = new db.Venue(req.body);
     foundVenue.comments.push({name : req.body.name, comment: req.body.comment});
     foundVenue.save(function(err, savedComment){
+      console.log('error', err);
       console.log('new comment created: ', savedComment);
       res.json(newComment);
     });

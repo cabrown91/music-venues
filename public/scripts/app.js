@@ -15,7 +15,7 @@ function renderVenues(venues) {
 
   var venuesHtml = template({ venues: venues });
   $venues.prepend(venuesHtml);
-  console.log(venuesHtml);
+
 }
 
 $(document).ready(function(){
@@ -61,25 +61,31 @@ function handleDeleteVenueError(err) {
   return 'Error deleting the venue:', err;
 }
 
-$('#venues').on('click', '.comment-btn', commentBtnClick);
+$('body').on('click', '.comment-btn', commentBtnClick);
 
 function commentBtnClick(e){
-  $('#comment-section').show();
-  $('.comment-btn').hide();
-  $('.delete-btn').hide();
-  $('.edit-btn').hide();
+  var venueId = $(this).data('venue-id');
+
+
+  $(this).siblings('#comment-section').show();
+  $(this).siblings('.comment-btn').hide();
+  $(this).siblings('.delete-btn').hide();
+  $(this).siblings('.edit-btn').hide();
 }
 
-$('#venues').on('click', '.post-btn', handleComment);
+$('body').on('click', '.post-btn', handleComment);
+var $body = $('#body');
+var $title = $('#title');
 
-function handleComment() {
-  var venueId = $(this).parents('.venue').data('venue-id');
-  var comment = $('#body');
-  var name = $('#title');
+function handleComment(e) {
+  var venueId = $(this).data('venue-id');
+  var commentUrl = '/api/venues/' + venueId + '/comments';
+  var venueCommentId = e.currentTarget.attributes[1].value;
+
   $.ajax({
-    url: '/api/venues/' + venueId + '/comments',
-    method: 'PUT',
-    data: {name: name.val(), comment: comment.val() },
+    url: commentUrl,
+    method: 'POST',
+    data: $('#comment-section-' + venueCommentId).serialize() ,
     success: handleCommentSuccess,
     error: handleCommentError
   });
@@ -88,7 +94,8 @@ function handleComment() {
     console.log('The comment:', comment, 'was created!');
     // re-render whole page to maintain state
     getVenues();
-    $('#comment-section').hide();
+    
+    $('.comment-section').hide();
     $('.delete-btn').show();
     $('edit-btn').show();
     $('.comment-btn').show();
