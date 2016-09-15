@@ -1,5 +1,7 @@
 # Music Venues App-Project 1
 
+Check out our app on <a href="https://stark-tundra-16200.herokuapp.com/"> Heroku 
+
 ## Objective
 Our goal was to create a CRUD app to locate and build a directory of local SF/East Bay music venues. People that are new to the city often need word-of-mouth reference or a comprehensive guide to break through the mainstream, which is where our app comes into place!
 The main focus/inspiration stemmed from the fact that "big room" venues (think Civic Center, SFJazz, etc) are the most-frequented and well-known, but there are unique atmospheres, amenities, and artists that can only be found at smaller neighborhood venues.
