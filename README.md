@@ -1,6 +1,6 @@
 # Music Venues App-Project 1
 
-Check out our app on <a href="https://stark-tundra-16200.herokuapp.com/"> Heroku 
+Check out our app on <a href="https://stark-tundra-16200.herokuapp.com/"> Heroku
 
 ## Objective
 Our goal was to create a CRUD app to locate and build a directory of local SF/East Bay music venues. People that are new to the city often need word-of-mouth reference or a comprehensive guide to break through the mainstream, which is where our app comes into place!
@@ -47,3 +47,27 @@ with pulling, merging, and pushing our respective files. We had over 60 commits 
 
 
 ## Code Snippets (Code We're Proud Of!)
+
+```JavaScript
+$('#form-btn').on('click', function(e) {
+  e.preventDefault();
+
+var nameData= $('#nameData');
+var addressData = $('#addressData');
+var websiteData = $('#websiteData');
+var imageData = $('#imageData');
+
+  $.ajax({
+    method: 'POST',
+    url: '/api/venues',
+    data:
+      {name: nameData.val(), address: addressData.val(), website: websiteData.val(), image: imageData.val()},
+    success: renderVenues
+  });
+    console.log(nameData, addressData, websiteData, imageData);
+    $( '#newVenueForm' ).each(function(){
+    this.reset();
+    window.location.reload();
+  });
+    });
+```
